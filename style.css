@@ -11,7 +11,7 @@ h1 {
 input {
 	margin: 0;
 }
-.input-block a {
+.input-block button {
 	display: inline-block;
 	text-decoration: none;
 	color: #000;
@@ -29,7 +29,7 @@ input {
 	vertical-align: middle;
 	line-height: 24px;
 }
-.input-block a:hover {
+.input-block button:hover {
 	background-color: #ccc;
 }
 #openBtn {
@@ -220,6 +220,11 @@ input {
 #line {
 	background-color: #00c300;
 	color: #fff;
+	border-color: #00a300;
+}
+
+#line:hover {
+	background-color: #00a300;
 }
 
 #line img {
@@ -236,6 +241,11 @@ input {
 #fb {
 	background-color: #4763b3;
 	color: #fff;
+	border-color: #3b5295;
+}
+
+#fb:hover {
+	background-color: #3b5295;
 }
 
 .img-container {
