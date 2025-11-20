@@ -20,7 +20,7 @@
 		ff = "DFKai-sb",
 		width = 500,
 		height = 500,
-		txs = 1,
+		tsx = 1,
 		sx = 1,
 		sy = 1,
 		sc = width / height,
