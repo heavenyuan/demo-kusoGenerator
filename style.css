@@ -227,17 +227,6 @@ input {
 	background-color: #00a300;
 }
 
-#line img {
-	width: 23px;
-	height: 23px;
-}
-
-#line span {
-	vertical-align: top;
-	width: auto;
-	line-height: 24px;
-}
-
 #fb {
 	background-color: #4763b3;
 	color: #fff;

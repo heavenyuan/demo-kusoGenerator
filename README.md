@@ -107,6 +107,16 @@ Despite being created in 2016, the core concept remains relevant, demonstrating 
 **Original Development**: 2016
 **Framework Philosophy**: Keep it simple, keep it working
 
+### Recent Improvements
+
+**Image Saving Enhancement** (2025):
+- **Dual Download Methods**:
+  - "下載圖片" (Download Image): Direct download for desktop and modern mobile browsers
+  - "開啟圖片" (Open Image): Opens image in new tab for WebView environments (LINE, Facebook in-app browsers)
+- **WebView Compatibility**: Optimized for in-app browsers where direct download may not work
+- **Error Handling**: Added validation and user-friendly error messages
+- **Technical Implementation**: Improved method using `document.write()` for reliable image display across different browser environments
+
 ---
 
 ## 繁體中文
@@ -200,6 +210,16 @@ demo-kusoGenerator/
 
 **原始開發**: 2016 年
 **框架理念**: 保持簡單，保持運作
+
+### 近期改進
+
+**圖片儲存功能優化** (2025):
+- **雙重儲存方式**：
+  - 「下載圖片」：適用於桌面瀏覽器和現代行動瀏覽器的直接下載
+  - 「開啟圖片」：針對 WebView 環境（LINE、Facebook 內建瀏覽器）優化，開啟後可長按儲存
+- **WebView 相容性**：解決內建瀏覽器中直接下載可能失效的問題
+- **錯誤處理**：新增驗證機制和友善的錯誤提示訊息
+- **技術實作**：採用 `document.write()` 方法，確保圖片在不同瀏覽器環境中都能正確顯示
 
 ---
 

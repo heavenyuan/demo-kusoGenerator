@@ -403,8 +403,13 @@
 	};
 
 	var downloadCanvas = function (link, dataURL, filename) {
-		link.href = dataURL;
-		link.download = filename;
+		// 建立臨時下載連結
+		var tempLink = document.createElement('a');
+		tempLink.href = dataURL;
+		tempLink.download = filename;
+		document.body.appendChild(tempLink);
+		tempLink.click();
+		document.body.removeChild(tempLink);
 	};
 
 	var tracking = function (category, action, label) {
@@ -496,8 +501,27 @@
 		$iphone.on("click", function (e) {
 			e.preventDefault();
 			$(this).css("pointer-events", "none");
-			var dataURL = getBase64();
-			window.open(dataURL);
+
+			try {
+				var dataURL = getBase64();
+				if (!dataURL || dataURL === 'data:,') {
+					alert("請先上傳圖片或選擇預設圖片");
+					$(this).css("pointer-events", "auto");
+					return;
+				}
+
+				var newWindow = window.open();
+				if (newWindow) {
+					newWindow.document.write('<img src="' + dataURL + '" style="max-width:100%;height:auto;">');
+					newWindow.document.title = tmpText || '回文圖';
+				} else {
+					alert("無法開啟新視窗，請檢查瀏覽器設定是否阻擋彈出視窗");
+				}
+			} catch (err) {
+				console.error("開啟圖片錯誤:", err);
+				alert("開啟圖片失敗");
+			}
+
 			setTimeout(function () {
 				$iphone.css("pointer-events", "auto");
 			}, 500);
