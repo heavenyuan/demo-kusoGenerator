@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="UTF-8">
+	<title>回文圖產生器趴兔(BETA)</title>
+    <meta name="title" content="回文圖產生器趴兔">
+    <meta name="description" content="柴犬回文圖產生器趴兔">
+	<meta property="fb:app_id" content="412120008879252" />
+	<meta property="og:locale" content="zh_TW" />
+	<meta property="og:title" content="回文圖產生器趴兔" />
+	<meta property="og:description" content="回文圖產生器趴兔" />
+	<meta property="og:url" content="http://c2digital.com.tw/demo/kusogen/" />
+	<meta property="og:image" content="http://c2digital.com.tw/demo/kusogen/fb.png" />
+	<meta property="og:site_name" content="回文圖產生器趴兔" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>回文圖產生器趴兔</h1>
+		<div class="input-block center">
+			<select id="typeSel"></select>
+			<div class="img-container">
+				<!-- <div class="img-content"><img src="img/3xoxh.jpg"></div> -->
+			</div>
+		</div>
+		<div class="canvas-block">
+			<canvas id="myCanvas" width="1000" height="1000"></canvas>
+		</div>
+		<!-- <a href="https://www.flickr.com/photos/jfleming701/4452629067/in/album-72157623141600180/" class="smallText">柴犬圖片來源:https://www.flickr.com/photos/jfleming701/</a> -->
+		<div class="input-block">
+			<span>選擇圖片：</span><input id="fileUpload" type="file" accept="image/*" value="選擇圖片">
+		</div>
+		<div class="input-block">
+			<span>圖片風格：</span><select id="filter">
+				<option value="0">正常</option>
+				<option value="2">黑白</option>
+				<option value="3">泛黃</option>
+				<option value="1">高亮</option>
+				<option value="5">過曝</option>
+				<option value="4">負片</option>
+			</select>
+		</div>
+		<div class="input-block">
+			<span>輸入文字：</span>
+			<input type="text" id="inpText" value="回文在此">
+			<select id="sel">
+				<option value="DFKai-sb">標楷體</option>
+				<option value="Microsoft JhengHei">微軟正黑體</option>
+				<option value="PMingLiU">新細明體</option>
+			</select>
+		</div>
+		<div class="input-block">
+			<span>文字位置：</span>
+			<input type="radio" name="textAlign" class="tAlign" id="ar" value="r"><label for="ar">右</label>
+			<input type="radio" name="textAlign" class="tAlign" id="al" value="l"><label for="al">左</label>
+			<input type="radio" name="textAlign" class="tAlign" id="at" value="t"><label for="at">上</label>
+			<input type="radio" name="textAlign" class="tAlign" id="ab" value="b"><label for="ab">下</label>
+		</div>
+		<div class="input-block">
+			<span>字型大小：</span>
+			<input type="range" id="inpRange" min="10" max="200" value="60">
+		</div>
+		<div class="input-block">
+			<span>文字顏色：</span>
+			<span class="text-color white" data-color="white"></span>
+			<span class="text-color black" data-color="black"></span>
+			<span class="text-color red" data-color="red"></span>
+			<span class="text-color green" data-color="green"></span>
+			<span class="text-color blue" data-color="blue"></span>
+		</div>
+		<div class="input-block center">
+			<button type="button" id="save">儲存圖片1</button>
+			<button type="button" id="iphone">儲存圖片2</button>
+			<button type="button" id="imgur">上傳imgur</button>
+			<button type="button" class="inline">使用說明</button>
+			<button type="button" id="fb">facebook分享</button>
+			<button type="button" id="line"><img src="../images/linebutton_20x20_zh-hant.png" width="auto" height="100%" alt="用LINE傳送" /><span>用LINE傳送</span></button>
+		</div>
+		<div class="input-block of center">
+			<div class="fb-like fl" data-href="http://c2digital.com.tw/demo/kusogen/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		</div>
+		<div class="ex">
+			(((如果網友們有適合的照片想預設給大家使用的，請寄到service@c2digital.com.tw，還請提供多注意版權問題，將於審核後放上使用。)))<br>
+			(((因版權問題將原本<a href="https://www.flickr.com/photos/jfleming701/4452629067/" target="_blank">柴犬圖</a>撤掉囉，請網友自行上傳有趣的回文圖合成吧。)))<br>
+			<!-- <a href="https://www.flickr.com/photos/jfleming701/4452629067/in/album-72157623141600180/">柴犬圖片來源</a> -->
+			謝謝大家的支持<br>
+			持續更新中...<br>
+		</div>
+		<input type="checkbox" id="openBtn">
+		<div class="input-block fb-block">
+			<div class="fb-comments" data-href="http://c2digital.com.tw/demo/kusogen/" data-width="100%" data-numposts="5" data-order-by="reverse_time"></div>
+		</div>
+	</div>
+ 	<!-- <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-31173366-1', 'auto');
+		ga('send', 'pageview');
+
+	</script> -->
+	<script>
+		var appId = '412120008879252';
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : appId,
+				xfbml      : true,
+				version    : 'v2.5'
+			});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/zh_TW/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
