@@ -8,6 +8,12 @@
 
 ## English
 
+### Live Demo
+
+**👉 [Try it now!](https://heavenyuan.github.io/demo-kusoGenerator/)**
+
+**GitHub Repository**: [https://github.com/heavenyuan/demo-kusoGenerator](https://github.com/heavenyuan/demo-kusoGenerator)
+
 ### Overview
 
 Kuso Generator is a web-based meme image generator that allows users to create custom text overlays on images with various filters and effects. Originally developed in 2016, it became a viral phenomenon in the Taiwanese internet community, enabling users to create and share humorous "reply images" (回文圖) for social media.
@@ -104,6 +110,12 @@ Despite being created in 2016, the core concept remains relevant, demonstrating 
 ---
 
 ## 繁體中文
+
+### 線上體驗
+
+**👉 [立即試用！](https://heavenyuan.github.io/demo-kusoGenerator/)**
+
+**GitHub 專案**: [https://github.com/heavenyuan/demo-kusoGenerator](https://github.com/heavenyuan/demo-kusoGenerator)
 
 ### 專案簡介
 
